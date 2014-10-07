@@ -1,0 +1,140 @@
+# Use Xft?
+use_spacer none
+use_xft yes
+xftfont Terminus:size=9
+text_buffer_size 2048
+
+# Update interval in seconds
+update_interval 3.0
+
+# This is the number of times Conky will update before quitting.
+# Set to zero to run forever.
+total_run_times 0
+
+# Create own window instead of using desktop (required in nautilus)
+own_window yes
+#own_window_transparent no
+own_window_type normal
+own_window_colour black
+#background no
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+own_window_title 
+own_window_argb_visual true
+own_window_argb_value 0
+
+# Use double buffering (reduces flicker, may not work for everyone)
+double_buffer yes
+
+# Minimum size of text area
+minimum_size 3500
+maximum_width 350
+
+# Draw shades?
+draw_shades no
+
+# Draw outlines?
+draw_outline no
+
+# Draw borders around text
+draw_borders no
+
+# Stippled borders?
+stippled_borders 0
+
+
+
+# border width
+border_width 1
+
+# Default colors and also border colors
+default_color white
+default_shade_color black
+default_outline_color white
+
+# Text alignment, other possible values are commented
+alignment top_left
+#alignment top_right
+#alignment bottom_left
+#alignment bottom_right
+
+# Gap between borders of screen and text
+# same thing as passing -x at command line
+gap_x 1940
+gap_y 0
+
+# Subtract file system buffers from used memory?
+no_buffers yes
+
+# set to yes if you want all text to be in uppercase
+uppercase no
+
+# number of cpu samples to average
+# set to 1 to disable averaging
+cpu_avg_samples 2
+
+# number of net samples to average
+# set to 1 to disable averaging
+net_avg_samples 2
+
+# Force UTF8? note that UTF8 support required XFT
+override_utf8_locale yes
+
+# Add spaces to keep things from moving about? This only affects certain objects.
+use_spacer none
+
+# Use short unit
+short_units on
+
+# Colors
+default_color ddd #Gainsboro
+color1 C7FF8E
+color2 9FFCC0 #bar_color
+
+TEXT
+${alignc}${voffset 5}${font :style=Bold:pixelsize=12}DAY${font}${voffset -12} ${font Poky:pixelsize=22}d${font}
+${alignc 40}${font Digital Readout Thick Upright:size=24}${time %H:%M}${font}
+${voffset 2}${alignc}${time %A %d %B %Y}
+${hr}
+${kernel}  ${alignr}Uptime: $uptime_short
+Processor${alignr}${execi 1000 cat /proc/cpuinfo | awk '/model name/ {gsub(/\([^)]+\)/,""); print $4, $5, $6}' | uniq}
+Emails: ${execi 300 ~/.conky/scripts/gmail1.py} ${alignr}Users logon: $user_number
+Reputation: ${execi 300 ~/.conky/scripts/so.sh} ${alignr}Load: ${alignr}${loadavg}
+#CPU
+
+${alignc}${font :style=Bold:pixelsize=12}CPU${voffset -8} ${font Poky:pixelsize=22}S${font} 
+
+${cpugraph  CPU 20,250 FFF6CD FF0B00 -t } ${voffset 5}${alignr}${font :style=Bold:pixelsize=14}${cpu CPU}% ${font}
+CPU % ${alignr}
+${color #ddaa00}${top name 1} $alignr  ${top cpu 1} $color
+${top name 2} $alignr  ${top cpu 2} 
+${top name 3} $alignr  ${top cpu 3} 
+
+Core 0: ${alignr}${execi 8 sensors | grep 'Core 0' | cut -c18-24 | sed '/^$/d'} 
+Core 1: ${alignr}${execi 8 sensors | grep 'Core 0' | cut -c18-24 | sed '/^$/d'} 
+Core 2: ${alignr}${execi 8 sensors | grep 'Core 2' | cut -c18-24 | sed '/^$/d'} 
+Core 3: ${alignr}${execi 8 sensors | grep 'Core 3' | cut -c18-24 | sed '/^$/d'} 
+${alignc}${voffset 5}${font :style=Bold:pixelsize=12}MEM${font}${voffset -8} ${font Poky:pixelsize=22}a${font} 
+${mem} (${memperc}%) of ${memmax}
+${color lightgrey}${membar 4,250}${color}
+Processes: ${alignr} $processes (${running_processes})
+
+MEM  ${alignr}
+${color #ddaa00}${top_mem name 1} $alignr  ${top_mem mem_res 1}$color
+${top_mem name 2} $alignr   ${top_mem mem_res 2}
+${top_mem name 3} $alignr   ${top_mem mem_res 3}
+${if_up wlan0}
+${alignc}${font :style=Bold:pixelsize=12}NET  ${font}${voffset -10} ${font Poky:pixelsize=22}Y${font}
+Down: ${downspeed wlan0} k/s ${alignr}Up: ${upspeed wlan0} k/s
+Total: ${totaldown wlan0}  ${alignr}Total: ${totalup wlan0}
+${downspeedgraph wlan0 32,150 FFF6CD FF0B00 -t} ${alignr}${upspeedgraph wlan0 32,150 FFF6CD FF0B00 -t}
+Signal: ${alignr}${color lightgrey}${wireless_link_bar 4,140 wlan0}  ${wireless_link_qual wlan0}%${color}
+IP: ${alignr}${addr wlan0}${color} | ${execi 150 curl icanhazip.com}
+TCP Connections: ${alignr}${tcp_portmon 1 65535 count}  | Inbound: ${tcp_portmon 1 32767 count} |  Outbound: ${tcp_portmon 32768 61000 count}${alignr}
+${endif}
+${alignc}${font :style=Bold:pixelsize=12} HD${font}${voffset -10} ${font Poky:pixelsize=22}y${font}
+Reads ${diskio_read /dev/sdc} ${offset 100} ${alignr}Writes  ${diskio_write /dev/sdc}
+${diskiograph_read /dev/sdc 32,150 FFF6CD FF0B00 -t} ${alignr}${diskiograph_write /dev/sdc 32,150 FFF6CD FF0B00 -t}
+${execpi 30 ~/.conky/scripts/disk.sh}
+
+
+
