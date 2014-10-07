@@ -2,6 +2,8 @@
 
 from feedly import FeedlyClient
 import json
+from subprocess import call
+
 ignored=["global.all", "global.must", "global.uncategorized", "Security", "Ignore", "GMAT"]
 code = "AhDOo-J7ImkiOiIyM2JiYjJjNC02MmI5LTRiYjktYTc1Ni01NTZjZWYxNTEyZjkiLCJ1IjoiMTAxMjk2MjUyNDE1MzQ5MDM1NzgwIiwiYSI6IldlYlJlYWRlciIsInAiOjYsInQiOjE0MTI2MTQwMzEzMzd9"
 #{u'access_token': u'Ajkjuy97ImEiOiJXZWJSZWFkZXIiLCJlIjoxNDEzMjE4OTU2Mjg4LCJpIjoiMjNiYmIyYzQtNjJiOS00YmI5LWE3NTYtNTU2Y2VmMTUxMmY5IiwicCI6NiwidCI6MSwidiI6InByb2R1Y3Rpb24iLCJ3IjoiMjAxMy4xMiIsIngiOiJzdGFuZGFyZCJ9:webreader', 
