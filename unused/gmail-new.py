@@ -45,7 +45,7 @@ def fill(text, width):
 def readmail(feed):
     '''Parse the Atom feed and print a summary'''
     atom = feedparser.parse(feed)
-    print ("")
+    #print ("")
     print (atom.feed.title)
     print ("You have %s new mails" % len(atom.entries))
     # Mostly pretty printing magic
