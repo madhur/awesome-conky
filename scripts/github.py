@@ -5,8 +5,9 @@ import json
 import zlib
 import base64
 from subprocess import call
+from os.path import expanduser
 
-json_data=open('.passwords.json')
+json_data=open(expanduser('~')+'/.conky/scripts/.passwords.json')
 data = json.load(json_data)
 username=data['github']['username']
 password=data['github']['password']
@@ -26,7 +27,7 @@ json_data = j.read()
 j_obj = json.loads(json_data)
 
 
-print "${goto 250}${color1}Followers: ${alignr}${color white}%d" %(j_obj['followers'])
+print "${color1}Followers: ${alignr}${color white}%d" %(j_obj['followers'])
 
 for repo in repos:
 	repourl = "https://api.github.com/repos/madhur/"+ repo
@@ -39,5 +40,5 @@ for repo in repos:
 	json_data = j.read()
 	j_obj = json.loads(json_data)
 
-	print "${goto 250}${color white}%s  ${alignr}${color1}Starred: ${color white}%d    ${color1}Forks: ${color white}%d" %(j_obj['name'],  j_obj['stargazers_count'], j_obj['forks_count'])
+	print "${color white}%s  ${alignr}${color1}Starred: ${color white}%d    ${color1}Forks: ${color white}%d" %(j_obj['name'],  j_obj['stargazers_count'], j_obj['forks_count'])
 

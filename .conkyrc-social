@@ -27,7 +27,7 @@ double_buffer yes
 
 # Minimum size of text area
 minimum_size 2000
-maximum_width 550
+maximum_width 350
 
 # Draw shades?
 draw_shades no
@@ -92,21 +92,21 @@ color7 333333
 TEXT
 ${alignc}${font :style=Bold:pixelsize=12}GMAIL${font}
 ${color7}${hr}${color}
-${execpi 600 ~/.conky/scripts/gmail.sh}
+${execpi 60 ~/.conky/scripts/gmail.py}
 
-${goto 250}${alignc}${font :style=Bold:pixelsize=12}FEEDLY${font}
-${goto 250}${color7}${hr}${color}
-${goto 250}${execpi 600 ~/.conky/scripts/feed_read.py}
+${alignc}${font :style=Bold:pixelsize=12}FEEDLY${font}
+${color7}${hr}${color}
+${execpi 60 ~/.conky/scripts/feed_read.py}
 
-${goto 250}${alignc}${font :style=Bold:pixelsize=12}FACEBOOK${font}
-${goto 250}${color7}${hr}${color}
-${goto 250}${execpi 3600 ~/.conky/scripts/facebook.sh notify}
+${alignc}${font :style=Bold:pixelsize=12}FACEBOOK${font}
+${color7}${hr}${color}
+${execpi 360 ~/.conky/scripts/facebook.sh notify}
 #${execpi 3600 ~/.conky/scripts/facebook.sh poke}
-${goto 250}${execpi 3600 ~/.conky/scripts/facebook.sh message}
-${goto 250}${execpi 3600 ~/.conky/scripts/facebook.sh friend}
+${execpi 360 ~/.conky/scripts/facebook.sh message}
+${execpi 360 ~/.conky/scripts/facebook.sh friend}
 #${execpi 3600 ~/.conky/scripts/facebook.sh group}
 #${execpi 3600 ~/.conky/scripts/facebook.sh events}
 
 ${alignc}${font :style=Bold:pixelsize=12}GITHUB${font}
-${goto 250}${color7}${hr}${color}
-${execpi 7200 ~/.conky/scripts/github.py}
+${color7}${hr}${color}
+${execpi 720 ~/.conky/scripts/github.py}

@@ -3,14 +3,10 @@
 from feedly import FeedlyClient
 import json
 from subprocess import call
+from os.path import expanduser
 
 #Categories to ignore, you can add yours
 ignored=["global.all", "global.must", "global.uncategorized", "Security", "Ignore", "GMAT", "sharepoint"]
-#code = "AhDOo-J7ImkiOiIyM2JiYjJjNC02MmI5LTRiYjktYTc1Ni01NTZjZWYxNTEyZjkiLCJ1IjoiMTAxMjk2MjUyNDE1MzQ5MDM1NzgwIiwiYSI6IldlYlJlYWRlciIsInAiOjYsInQiOjE0MTI2MTQwMzEzMzd9"
-#{u'access_token': u'Ajkjuy97ImEiOiJXZWJSZWFkZXIiLCJlIjoxNDEzMjE4OTU2Mjg4LCJpIjoiMjNiYmIyYzQtNjJiOS00YmI5LWE3NTYtNTU2Y2VmMTUxMmY5IiwicCI6NiwidCI6MSwidiI6InByb2R1Y3Rpb24iLCJ3IjoiMjAxMy4xMiIsIngiOiJzdGFuZGFyZCJ9:webreader', 
-#u'expires_in': 604799, u'token_type': u'Bearer', u'plan': u'standard', u'provider': u'GooglePlus', u'id': u'23bbb2c4-62b9-4bb9-a756-556cef1512f9', 
-#u'refresh_token': u'AtOPH917ImkiOiIyM2JiYjJjNC02MmI5LTRiYjktYTc1Ni01NTZjZWYxNTEyZjkiLCJ1IjoiMTAxMjk2MjUyNDE1MzQ5MDM1NzgwIiwiYSI6IldlYlJlYWRlciIsInAiOjYsImMiOjE0MTI2MTQxNTYyODgsInYiOiJwcm9kdWN0aW9uIiwibiI6ImVWYjlnOTJmRDVhSEh1cDYifQ:webreader'}
-#access_token = "Ajkjuy97ImEiOiJXZWJSZWFkZXIiLCJlIjoxNDEzMjE4OTU2Mjg4LCJpIjoiMjNiYmIyYzQtNjJiOS00YmI5LWE3NTYtNTU2Y2VmMTUxMmY5IiwicCI6NiwidCI6MSwidiI6InByb2R1Y3Rpb24iLCJ3IjoiMjAxMy4xMiIsIngiOiJzdGFuZGFyZCJ9:webreader"
 
 FEEDLY_REDIRECT_URI = "http://localhost"
 FEEDLY_CLIENT_ID="webreader"
@@ -52,7 +48,7 @@ def feed(access_token):
     user_subscriptions = feedly.get_user_subscriptions(access_token)    
 
 
-json_data=open('.passwords.json')
+json_data=open(expanduser('~')+'/.conky/scripts/.passwords.json')
 data = json.load(json_data)
 access_token=data['feedly']['access_token']
 
@@ -65,7 +61,7 @@ for item in counts['unreadcounts']:
     itemcount = item['count']
     itemname = item['id'][51:]
     if(itemcount > 0 and itemname not in ignored and "user/23bbb2c4-62b9-4bb9-a756-556cef1512f9/category/" in item['id']):
-        print "${goto 250}${color1}%s${alignr}${color white} %d" %(itemname, itemcount)
+        print "${color1}%s${alignr}${color white} %d" %(itemname, itemcount)
 
 
 call(['notify-send','Feedly Updated'])        

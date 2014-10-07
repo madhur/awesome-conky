@@ -4,8 +4,9 @@ import urllib.request
 from xml.etree import ElementTree as etree
 from subprocess import call
 import json
+from os.path import expanduser
 
-json_data=open('.passwords.json')
+json_data=open(expanduser('~')+'/.conky/scripts/.passwords.json')
 data = json.load(json_data)
 username=data['gmail']['username']
 password=data['gmail']['password']

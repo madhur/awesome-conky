@@ -46,19 +46,19 @@ def readmail(feed):
     '''Parse the Atom feed and print a summary'''
     atom = feedparser.parse(feed)
     print ("")
-    #print (atom.feed.title)
-    print ("${color white}You have %s new mails${color}" % len(atom.entries))
+    print (atom.feed.title)
+    print ("You have %s new mails" % len(atom.entries))
     # Mostly pretty printing magic
-    #print ("+"+("-"*84)+"+")
-    #print ("| Sl.|"+" Subject"+' '*48+"|"+" Author"+' '*15+"|")
-    #print ("+"+("-"*84)+"+")
+    print ("+"+("-"*84)+"+")
+    print ("| Sl.|"+" Subject"+' '*48+"|"+" Author"+' '*15+"|")
+    print ("+"+("-"*84)+"+")
     for i in range(len(atom.entries)):
-        print ("%s" % (
-            #fill(str(i), 3),
-            fill(wrap(atom.entries[i].title, 50)[0]+"[...]", 55)))
-            #fill(wrap(atom.entries[i].author, 15)[0]+"[...]", 21)))
+        print ("| %s| %s| %s|" % (
+            fill(str(i), 3),
+            fill(wrap(atom.entries[i].title, 50)[0]+"[...]", 55),
+            fill(wrap(atom.entries[i].author, 15)[0]+"[...]", 21)))
     
-    #print ("+"+("-"*84)+"+")
+    print ("+"+("-"*84)+"+")
 
 if __name__ == "__main__":
     f = auth()  # Do auth and then get the feed
