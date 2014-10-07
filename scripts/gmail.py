@@ -6,6 +6,7 @@ import feedparser         # For parsing the feed
 from textwrap import wrap # For pretty printing assistance
 import json
 from os.path import expanduser
+import sys
 
 _URL = "https://mail.google.com/gmail/feed/atom/unread"
 
@@ -45,21 +46,20 @@ def fill(text, width):
 def readmail(feed):
     '''Parse the Atom feed and print a summary'''
     atom = feedparser.parse(feed)
-    #print ("")
-    #print (atom.feed.title)
-    print ("${color white}You have %s new mails${color}" % len(atom.entries))
-    # Mostly pretty printing magic
-    #print ("+"+("-"*84)+"+")
-    #print ("| Sl.|"+" Subject"+' '*48+"|"+" Author"+' '*15+"|")
-    #print ("+"+("-"*84)+"+")
-    for i in range(len(atom.entries)):
-        print ("%s" % (
-            #fill(str(i), 3),
-            fill(wrap(atom.entries[i].title, 50)[0]+"[...]", 55)))
-            #fill(wrap(atom.entries[i].author, 15)[0]+"[...]", 21)))
-    
-    #print ("+"+("-"*84)+"+")
 
+    print ("${color white}You have %s new mails${color}" % len(atom.entries))
+  
+    for i in range(len(atom.entries)):
+        print ("%s" % (fill(wrap(atom.entries[i].title, 50)[0]+" ...", 55)))
+
+def countmail(feed):
+    '''Parse the Atom feed and print a summary'''
+    atom = feedparser.parse(feed)  
+    print ("Emails: %s new" %len(atom.entries))
+                
 if __name__ == "__main__":
     f = auth()  # Do auth and then get the feed
-    readmail(f) # Let the feed be chewed by feedparse
+    if(len(sys.argv) > 1):
+        countmail(f)
+    else:
+        readmail(f) # Let the feed be chewed by feedparse

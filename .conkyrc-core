@@ -97,8 +97,8 @@ ${voffset 2}${alignc}${time %A %d %B %Y}
 ${hr}
 ${kernel}  ${alignr}Uptime: $uptime_short
 Processor${alignr}${execi 1000 cat /proc/cpuinfo | awk '/model name/ {gsub(/\([^)]+\)/,""); print $4, $5, $6}' | uniq}
-Emails: ${execi 300 ~/.conky/scripts/gmail1.py} ${alignr}Users logon: $user_number
-Reputation: ${execi 300 ~/.conky/scripts/so.sh} ${alignr}Load: ${alignr}${loadavg}
+${execi 300 ~/.conky/scripts/gmail.py count} ${alignr}Users logon: $user_number
+${execi 300 ~/.conky/scripts/so.py count} ${alignr}Load: ${alignr}${loadavg}
 #CPU
 
 ${alignc}${font :style=Bold:pixelsize=12}CPU${voffset -8} ${font Poky:pixelsize=22}S${font} 
