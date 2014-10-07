@@ -22,4 +22,4 @@ json_data = j.read()
 j_obj = json.loads(json_data)
 
 
-print "${color1}Unread Items: ${alignr}${color white}%d" %(j_obj['count_unread'])
+print "${color1}Pocket Unread: ${alignr}${color white}%d" %(j_obj['count_unread'])

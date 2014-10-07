@@ -6,7 +6,7 @@ then
 
 	if [ "$msgcount" -eq "0" ]
 	then
-		echo No New Messages
+		#echo No New Messages
 
 	elif [ "$msgcount" -eq "1" ]
 	then
@@ -22,7 +22,7 @@ then
 
 	if [ "$pokecount" -eq "0" ]
 	then
-		echo No One Has Poked You
+		#echo No One Has Poked You
 
 	elif [ "$pokecount" -eq "1" ]
 	then
@@ -38,7 +38,7 @@ then
 
 	if [ "$notifycount" -eq "0" ]
 	then
-		echo No New Notifications
+		#echo No New Notifications
 
 	elif [ "$notifycount" -eq "1" ]
 	then
@@ -54,7 +54,7 @@ then
 
 	if [ "$friendcount" -eq "0" ]
 	then
-		echo No New Friend Requests
+		#echo No New Friend Requests
 
 	elif [ "$friendcount" -eq "1" ]
 	then
@@ -70,7 +70,7 @@ then
 
 	if [ "$groupcount" -eq "0" ]
 	then
-		echo No New Group Invites
+		#echo No New Group Invites
 
 	elif [ "$groupcount" -eq "1" ]
 	then
@@ -86,7 +86,7 @@ then
 
 	if [ "$eventscount" -eq "0" ]
 	then
-		echo No New Events
+		#echo No New Events
 
 	elif [ "$eventscount" -eq "1" ]
 	then

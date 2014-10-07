@@ -114,3 +114,5 @@ ${execpi 7200 ~/.conky/scripts/github.py}
 ${alignc}${font :style=Bold:pixelsize=12}MISC${font}
 ${color7}${hr}${color}
 ${execpi 7200 ~/.conky/scripts/so.py}
+
+${execpi 7200 ~/.conky/scripts/pocket.py}
