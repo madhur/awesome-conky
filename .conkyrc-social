@@ -1,7 +1,7 @@
 # Use Xft?
 use_spacer none
 use_xft yes
-xftfont Terminus:size=9
+xftfont Noto Sans:size=9
 text_buffer_size 2048
 
 # Update interval in seconds

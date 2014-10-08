@@ -1,7 +1,7 @@
 # Use Xft?
 use_spacer none
 use_xft yes
-xftfont Consolas:size=10
+xftfont Noto Sans:size=9
 text_buffer_size 2048
 
 # Update interval in seconds
@@ -45,11 +45,13 @@ stippled_borders 0
 
 # border width
 border_width 1
+draw_graph_borders yes
 
 # Default colors and also border colors
 default_color white
 default_shade_color black
 default_outline_color white
+
 
 # Text alignment, other possible values are commented
 alignment top_left
