@@ -7,7 +7,11 @@ from subprocess import call
 import sys
 import time
 
-so = 'https://api.stackexchange.com/2.2/users/507256?order=desc&sort=reputation&site=stackoverflow'
+json_data=open(expanduser('~')+'/.conky/scripts/.passwords.json')
+data = json.load(json_data)
+userid=data['so']['userid']
+
+so = 'https://api.stackexchange.com/2.2/users/'+userid+'?order=desc&sort=reputation&site=stackoverflow'
 
 j = urllib2.urlopen(so)
 json_data = j.read()
@@ -23,4 +27,4 @@ if j.info()['Content-Encoding'] == 'gzip':
     	print "  ${color}%s: ${alignr}${color white} %s" %("Day", j_obj['items'][0]['reputation_change_day'])
 
 
-call(['notify-send','Conky Updated'])
+#call(['notify-send','Conky Updated'])

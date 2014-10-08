@@ -13,13 +13,10 @@ data = json.load(json_data)
 username=data['github']['username']
 password=data['github']['password']
 
-#Put your github username
-user = "madhur"
-
 #Put repos to publish
-repos = ["madhur.github.com", "portablejekyll", "GAnalytics", "wunder-java", "msysgit-2.0.0"]
+repos = data['github']['fav_repos']
 
-request = urllib2.Request("https://api.github.com/users/" + user)
+request = urllib2.Request("https://api.github.com/users/" + username)
 base64string = base64.encodestring('%s:%s' % (username, password)).replace('\n', '')
 request.add_header("Authorization", "Basic %s" % base64string)   
 
@@ -31,7 +28,7 @@ j_obj = json.loads(json_data)
 print "${color1}Followers: ${color white}%d ${alignr}Last Check: ${color white}%s" %(j_obj['followers'], time.strftime("%I:%M"))
 
 for repo in repos:
-	repourl = "https://api.github.com/repos/madhur/"+ repo
+	repourl = "https://api.github.com/repos/"+ username +"/" repo
 	
 	request = urllib2.Request(repourl)
 	base64string = base64.encodestring('%s:%s' % (username, password)).replace('\n', '')

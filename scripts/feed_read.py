@@ -10,8 +10,7 @@ import time
 ignored=["global.all", "global.must", "global.uncategorized", "Security", "Ignore", "GMAT", "sharepoint", "madhur"]
 
 FEEDLY_REDIRECT_URI = "http://localhost"
-FEEDLY_CLIENT_ID="webreader"
-FEEDLY_CLIENT_SECRET="FE01FQSUP6QB0XP4XQ07VVMDWBKU"
+
 def get_feedly_client(token=None):
     if token:
         return FeedlyClient(token=token, sandbox=False)

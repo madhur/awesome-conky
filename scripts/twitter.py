@@ -10,9 +10,7 @@ from os.path import expanduser
 json_data=open(expanduser('~')+'/.conky/scripts/.passwords.json')
 data = json.load(json_data)
 access_token=data['twitter']['access_token']
-
-#Put your github username
-user = "madhur25"
+user = data['twitter']['madhur25']
 
 request = urllib2.Request("https://api.twitter.com/1.1/users/show.json?screen_name=" + user)
 bearer_value = 'Bearer %s' % access_token
