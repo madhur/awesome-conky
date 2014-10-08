@@ -43,10 +43,10 @@ for loc in locs:
 	forecast.append((loc.attributes['day'].value, loc.attributes['low'].value, loc.attributes['high'].value , loc.attributes['code'].value))
 
 
-print ("${font Open Sans:size=15:style=Light}%s, %s${font}" % (city, country))
+print ("${voffset -20}${font Open Sans:size=15:style=Light}%s, %s${font}" % (city, country))
 print ("${color7}${hr}${color}")
 print ("${font Open Sans:size=60:style=Light}${alignr}%s°${font}${voffset -20}" %(current_temp))
-print ("${image ~/.conky/.conky-google-now/%s.png -p 0,65 -s 60x60}" %(current_code))
+print ("${image ~/.conky/.conky-google-now/%s.png -p 0,45 -s 60x60}" %(current_code))
 print ("%s" %(current_condition))
 print ("${image ~/.conky/.conky-google-now/wind.png -p 0,135 -s 15x15}${goto 35}%s %s" %(speed, speed_unit))
 print ("${image ~/.conky/.conky-google-now/humidity.png -p 0,155 -s 15x15}${goto 35}%s %s" %(humidity,"%"))
