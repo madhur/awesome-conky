@@ -12,13 +12,6 @@ data = json.load(json_data)
 key=data['twitter']['key']
 secret=data['twitter']['secret']
 
-
-
-header = "OAuth "
-header = header + urllib.quote(key)
-header = header + "="
-header = header + '"'
-
 #Put your github username
 user = "madhur"
 

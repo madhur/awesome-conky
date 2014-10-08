@@ -6,6 +6,7 @@ import zlib
 import base64
 from subprocess import call
 from os.path import expanduser
+import time
 
 json_data=open(expanduser('~')+'/.conky/scripts/.passwords.json')
 data = json.load(json_data)
@@ -27,7 +28,7 @@ json_data = j.read()
 j_obj = json.loads(json_data)
 
 
-print "${color1}Followers: ${alignr}${color white}%d" %(j_obj['followers'])
+print "${color1}Followers: ${color white}%d ${alignr}Last Check: ${color white}%s" %(j_obj['followers'], time.strftime("%I:%M"))
 
 for repo in repos:
 	repourl = "https://api.github.com/repos/madhur/"+ repo

@@ -89,18 +89,19 @@ short_units on
 default_color ddd #Gainsboro
 color1 C7FF8E
 color2 9FFCC0 #bar_color
+color7 333333
 
 TEXT
-${alignc}${voffset 5}${font :style=Bold:pixelsize=12}DAY${font}${voffset -12} ${font Poky:pixelsize=22}d${font}
+#${alignc}${font Poky:pixelsize=22}d${font}
 ${alignc 40}${font Digital Readout Thick Upright:size=24}${time %H:%M}${font}
 ${voffset 2}${alignc}${time %A %d %B %Y}
-${hr}
+${color}${hr}${color}
 ${kernel}  ${alignr}Uptime: $uptime_short
 Processor${alignr}${execi 1000 cat /proc/cpuinfo | awk '/model name/ {gsub(/\([^)]+\)/,""); print $4, $5, $6}' | uniq}
 Users logon: $user_number ${alignr}Load: ${alignr}${loadavg}
 #CPU
 
-${alignc}${font :style=Bold:pixelsize=12}CPU${voffset -8} ${font Poky:pixelsize=22}S${font} 
+${alignc}${font Poky:pixelsize=22}S${font} 
 
 ${cpugraph  CPU 20,250 FFF6CD FF0B00 -t } ${voffset 5}${alignr}${font :style=Bold:pixelsize=14}${cpu CPU}% ${font}
 CPU % ${alignr}
@@ -112,7 +113,7 @@ Core 0: ${alignr}${execi 8 sensors | grep 'Core 0' | cut -c18-24 | sed '/^$/d'}
 Core 1: ${alignr}${execi 8 sensors | grep 'Core 0' | cut -c18-24 | sed '/^$/d'} 
 Core 2: ${alignr}${execi 8 sensors | grep 'Core 2' | cut -c18-24 | sed '/^$/d'} 
 Core 3: ${alignr}${execi 8 sensors | grep 'Core 3' | cut -c18-24 | sed '/^$/d'} 
-${alignc}${voffset 5}${font :style=Bold:pixelsize=12}MEM${font}${voffset -8} ${font Poky:pixelsize=22}a${font} 
+${alignc}${font Poky:pixelsize=22}a${font} 
 ${mem} (${memperc}%) of ${memmax}
 ${color lightgrey}${membar 4,250}${color}
 Processes: ${alignr} $processes (${running_processes})
@@ -122,7 +123,7 @@ ${color #ddaa00}${top_mem name 1} $alignr  ${top_mem mem_res 1}$color
 ${top_mem name 2} $alignr   ${top_mem mem_res 2}
 ${top_mem name 3} $alignr   ${top_mem mem_res 3}
 ${if_up wlan0}
-${alignc}${font :style=Bold:pixelsize=12}NET  ${font}${voffset -10} ${font Poky:pixelsize=22}Y${font}
+${alignc}${font Poky:pixelsize=22}Y${font}
 Down: ${downspeed wlan0} k/s ${alignr}Up: ${upspeed wlan0} k/s
 Total: ${totaldown wlan0}  ${alignr}Total: ${totalup wlan0}
 ${downspeedgraph wlan0 32,150 FFF6CD FF0B00 -t} ${alignr}${upspeedgraph wlan0 32,150 FFF6CD FF0B00 -t}
@@ -130,7 +131,7 @@ Signal: ${alignr}${color lightgrey}${wireless_link_bar 4,140 wlan0}  ${wireless_
 IP: ${alignr}${addr wlan0}${color} | ${execi 150 curl icanhazip.com}
 TCP Connections: ${alignr}${tcp_portmon 1 65535 count}  | Inbound: ${tcp_portmon 1 32767 count} |  Outbound: ${tcp_portmon 32768 61000 count}${alignr}
 ${endif}
-${alignc}${font :style=Bold:pixelsize=12} HD${font}${voffset -10} ${font Poky:pixelsize=22}y${font}
+${alignc}${font Poky:pixelsize=22}y${font}
 Reads ${diskio_read /dev/sdc} ${offset 100} ${alignr}Writes  ${diskio_write /dev/sdc}
 ${diskiograph_read /dev/sdc 32,150 FFF6CD FF0B00 -t} ${alignr}${diskiograph_write /dev/sdc 32,150 FFF6CD FF0B00 -t}
 ${execpi 30 ~/.conky/scripts/disk.sh}

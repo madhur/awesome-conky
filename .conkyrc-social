@@ -90,28 +90,23 @@ color2 fff #bar_color
 color7 333333
 
 TEXT
-${alignc}${font :style=Bold:pixelsize=12}GMAIL${font}
+${alignc}${font Foundation Icons General:style=Bold:pixelsize=18}H${font}
 ${color7}${hr}${color}
 ${execpi 600 ~/.conky/scripts/gmail.py}
 
-${alignc}${font :style=Bold:pixelsize=12}FEEDLY${font}
+${alignc}${font Foundation Icons Social:style=Bold:pixelsize=18}C${font}
 ${color7}${hr}${color}
 ${execpi 600 ~/.conky/scripts/feed_read.py}
 
-${alignc}${font :style=Bold:pixelsize=12}FACEBOOK${font}
+${alignc}${font Socicon:style=Bold:pixelsize=18}b${font}
 ${color7}${hr}${color}
-${execpi 3600 ~/.conky/scripts/facebook.sh notify}
-#${execpi 3600 ~/.conky/scripts/facebook.sh poke}
-${execpi 3600 ~/.conky/scripts/facebook.sh message}
-${execpi 3600 ~/.conky/scripts/facebook.sh friend}
-#${execpi 3600 ~/.conky/scripts/facebook.sh group}
-#${execpi 3600 ~/.conky/scripts/facebook.sh events}
+${execpi 3600 ~/.conky/scripts/facebook.sh}
 
-${alignc}${font :style=Bold:pixelsize=12}GITHUB${font}
+${alignc}${font Socicon:style=Bold:pixelsize=18}Q${font}
 ${color7}${hr}${color}
 ${execpi 7200 ~/.conky/scripts/github.py}
 
-${alignc}${font :style=Bold:pixelsize=12}MISC${font}
+${alignc}${font Foundation Icons General:style=Bold:pixelsize=18}O${font}
 ${color7}${hr}${color}
 ${execpi 7200 ~/.conky/scripts/so.py}
 
