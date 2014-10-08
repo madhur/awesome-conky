@@ -90,24 +90,24 @@ color2 fff #bar_color
 color7 333333
 
 TEXT
-${alignc}${font Foundation Icons General:style=Bold:pixelsize=18}H${font}
+${alignc}${font Zocial:style=Bold:pixelsize=18}m${font}
 ${color7}${hr}${color}
 ${execpi 600 ~/.conky/scripts/gmail.py}
 
-${alignc}${font Foundation Icons Social:style=Bold:pixelsize=18}C${font}
+${alignc}${color1}${font Zocial:style=Bold:pixelsize=18}R${font}
 ${color7}${hr}${color}
 ${execpi 600 ~/.conky/scripts/feed_read.py}
 
-${alignc}${font Socicon:style=Bold:pixelsize=18}b${font}
+${alignc}${color1}${font Zocial:style=Bold:pixelsize=18}f${font}
 ${color7}${hr}${color}
 ${execpi 3600 ~/.conky/scripts/facebook.sh}
 
-${alignc}${font Socicon:style=Bold:pixelsize=18}Q${font}
+${alignc}${color1}${font Zocial:style=Bold:pixelsize=18}è${font}
 ${color7}${hr}${color}
 ${execpi 7200 ~/.conky/scripts/github.py}
 
-${alignc}${font Foundation Icons General:style=Bold:pixelsize=18}O${font}
+${alignc}${color1}${font Zocial:style=Bold:pixelsize=18}T   ç   ì${font} 
 ${color7}${hr}${color}
 ${execpi 7200 ~/.conky/scripts/so.py}
-
+${execpi 7200 ~/.conky/scripts/twitter.py}
 ${execpi 7200 ~/.conky/scripts/pocket.py}

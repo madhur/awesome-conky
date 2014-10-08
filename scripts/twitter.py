@@ -9,36 +9,18 @@ from os.path import expanduser
 
 json_data=open(expanduser('~')+'/.conky/scripts/.passwords.json')
 data = json.load(json_data)
-key=data['twitter']['key']
-secret=data['twitter']['secret']
+access_token=data['twitter']['access_token']
 
 #Put your github username
-user = "madhur"
+user = "madhur25"
 
-#Put repos to publish
-repos = ["madhur.github.com", "portablejekyll", "GAnalytics", "wunder-java", "msysgit-2.0.0"]
-
-request = urllib2.Request("https://api.github.com/users/" + user)
-base64string = base64.encodestring('%s:%s' % (username, password)).replace('\n', '')
-request.add_header("Authorization", "Basic %s" % base64string)   
+request = urllib2.Request("https://api.twitter.com/1.1/users/show.json?screen_name=" + user)
+bearer_value = 'Bearer %s' % access_token
+request.add_header("Authorization", bearer_value)   
 
 j = urllib2.urlopen(request)
 json_data = j.read()
 j_obj = json.loads(json_data)
 
 
-print "${color1}Followers: ${alignr}${color white}%d" %(j_obj['followers'])
-
-for repo in repos:
-	repourl = "https://api.github.com/repos/madhur/"+ repo
-	
-	request = urllib2.Request(repourl)
-	base64string = base64.encodestring('%s:%s' % (username, password)).replace('\n', '')
-	request.add_header("Authorization", "Basic %s" % base64string)   
-
-	j = urllib2.urlopen(request)
-	json_data = j.read()
-	j_obj = json.loads(json_data)
-
-	print "${color white}%s  ${alignr}${color1}Starred: ${color white}%d    ${color1}Forks: ${color white}%d" %(j_obj['name'],  j_obj['stargazers_count'], j_obj['forks_count'])
-
+print "${color1}Twitter Followers: ${alignr}${color white}%d" %(j_obj['followers_count'])

@@ -5,6 +5,7 @@ import urllib
 import json
 from subprocess import call
 from os.path import expanduser
+import time
 
 json_data=open(expanduser('~')+'/.conky/scripts/.passwords.json')
 data = json.load(json_data)

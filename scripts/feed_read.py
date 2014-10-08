@@ -7,7 +7,7 @@ from os.path import expanduser
 import time
 
 #Categories to ignore, you can add yours
-ignored=["global.all", "global.must", "global.uncategorized", "Security", "Ignore", "GMAT", "sharepoint"]
+ignored=["global.all", "global.must", "global.uncategorized", "Security", "Ignore", "GMAT", "sharepoint", "madhur"]
 
 FEEDLY_REDIRECT_URI = "http://localhost"
 FEEDLY_CLIENT_ID="webreader"
@@ -62,8 +62,7 @@ count=0
 for item in counts['unreadcounts']:
     itemcount = item['count']
     itemname = item['id'][51:]
-    if(itemcount > 0 and itemname not in ignored and "user/23bbb2c4-62b9-4bb9-a756-556cef1512f9/category/" in item['id']):
-        #print "${color1}%s${alignr}${color white} %d" %(itemname, itemcount)
+    if(itemcount > 0 and itemname not in ignored and "user/23bbb2c4-62b9-4bb9-a756-556cef1512f9/category/" in item['id']):        
         count = count + itemcount
         text=text + "${color1}%s${alignr}${color white} %d" %(itemname, itemcount) +"\n"
 

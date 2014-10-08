@@ -41,5 +41,5 @@ for repo in repos:
 	json_data = j.read()
 	j_obj = json.loads(json_data)
 
-	print "${color white}%s  ${alignr}${color1}Starred: ${color white}%d    ${color1}Forks: ${color white}%d" %(j_obj['name'],  j_obj['stargazers_count'], j_obj['forks_count'])
+	print "${color white}%s  ${goto 200}${color1}Starred: ${color white}%d    ${color1}${alignr}Forks: ${color white}%d" %(j_obj['name'],  j_obj['stargazers_count'], j_obj['forks_count'])
 
