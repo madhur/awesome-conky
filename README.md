@@ -13,7 +13,6 @@ Click [here](https://raw.githubusercontent.com/madhur/awesome-conky/master/scree
 ###Features
 * Fetches Gmail using Atom feed 
 * Fetches Facebook friend requests, notifications using [fbcmd](http://fbcmd.dtompkins.com/)
-* Fetches Github followers and starred and fork count for your favorite repositories
 * Fetches Pocket unread items
 * Fetches Stackoverflow overall reputation, week, month and day change
 * Fetches twitter followers count
