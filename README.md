@@ -26,7 +26,9 @@ Click [here](https://raw.githubusercontent.com/madhur/awesome-conky/master/scree
 
 4. Install [fbcmd](http://fbcmd.dtompkins.com/) for facebook notifications
 
-5. `conky_start.sh` is a main executable which fires up all the three conkies. You might want to put it in your startup of your X Window.
+5. Update the 29229014 location code in `.conkyrc-weather` with your location code
+
+6. `conky_start.sh` is a main executable which fires up all the three conkies. You might want to put it in your startup of your X Window.
 
 There are 3 conky configurations as follows:
 

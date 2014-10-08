@@ -3,7 +3,7 @@
 msgcount=$(fbcmd NOTIFY | grep MESSAGES_UNREAD | grep -oE "[[:digit:]]{1,}")
 notifycount=$(fbcmd NOTICES unread | grep -c :title)
 friendcount=$(fbcmd NOTIFY | grep FRIEND_REQUESTS | grep -oE "[[:digit:]]{1,}")
-currenttime=$(date +%H:%M)
+currenttime=$(date +%I:%M)
 
 if [[ "$msgcount" -eq "0" ]] && [[ "$notifycount" -eq "0" ]] && [[ "$friendcount" -eq "0" ]]
 then

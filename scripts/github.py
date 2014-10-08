@@ -28,7 +28,7 @@ j_obj = json.loads(json_data)
 print "${color1}Followers: ${color white}%d ${alignr}Last Check: ${color white}%s" %(j_obj['followers'], time.strftime("%I:%M"))
 
 for repo in repos:
-	repourl = "https://api.github.com/repos/"+ username +"/" repo
+	repourl = "https://api.github.com/repos/"+ username +"/" + repo
 	
 	request = urllib2.Request(repourl)
 	base64string = base64.encodestring('%s:%s' % (username, password)).replace('\n', '')

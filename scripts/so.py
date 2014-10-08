@@ -6,6 +6,7 @@ import zlib
 from subprocess import call
 import sys
 import time
+from os.path import expanduser
 
 json_data=open(expanduser('~')+'/.conky/scripts/.passwords.json')
 data = json.load(json_data)
