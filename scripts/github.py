@@ -25,7 +25,7 @@ json_data = j.read()
 j_obj = json.loads(json_data)
 
 
-print "${color1}Followers: ${color white}%d ${alignr}Last Check: ${color white}%s" %(j_obj['followers'], time.strftime("%I:%M"))
+print "${color1}Followers: ${color white}%d ${alignr}Updated: ${color white}%s" %(j_obj['followers'], time.strftime("%I:%M"))
 
 for repo in repos:
 	repourl = "https://api.github.com/repos/"+ username +"/" + repo

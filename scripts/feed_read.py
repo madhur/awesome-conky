@@ -65,7 +65,7 @@ for item in counts['unreadcounts']:
         count = count + itemcount
         text=text + "${color1}%s${alignr}${color white} %d" %(itemname, itemcount) +"\n"
 
-print "${color1}Total unread: ${color white}%s ${alignr}${color1}Last Check: ${color white}%s" %(count, time.strftime("%I:%M"))
+print "${color1}Total unread: ${color white}%s ${alignr}${color1}Updated: ${color white}%s" %(count, time.strftime("%I:%M"))
 print text
 
 #call(['notify-send','Feedly Updated'])        

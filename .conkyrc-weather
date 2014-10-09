@@ -2,7 +2,7 @@
 
 # Conky settings #
 background no
-update_interval 1
+update_interval 3600
 double_buffer yes
 no_buffers yes
 
@@ -48,5 +48,5 @@ color1 FFFFFF
 color7 333333
 
 TEXT
-${execpi 5 ~/.conky/scripts/weather.py}
+${execpi 3600 ~/.conky/scripts/weather.py}
 

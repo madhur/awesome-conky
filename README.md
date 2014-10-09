@@ -16,6 +16,7 @@ Click [here](https://raw.githubusercontent.com/madhur/awesome-conky/master/scree
 * Fetches Pocket unread items
 * Fetches Stackoverflow overall reputation, week, month and day change
 * Fetches twitter followers count
+* Fetches github statistics
 
 ###Usage
 1. All the files need to be dropped into `.conky` folder inside your home directory i.e. `~/.conky/`
@@ -44,7 +45,7 @@ Most of the social networks use OAuth as their authentication mechanism. You wil
 
 * Gmail - Username / password
 * Github - Username / password
-* Facebook - Access via [fbcmd]
+* Facebook - Access via [fbcmd](http://fbcmd.dtompkins.com/)
 * Stackoverflow - Uses unauthenticated API. No setup required except userid
 * Twitter - Uses OAuth [Application only authentication](https://dev.twitter.com/oauth/application-only) 
 * Pocket - OAuth. See [developer docs](http://getpocket.com/developer/)

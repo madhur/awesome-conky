@@ -47,7 +47,7 @@ def readmail(feed):
     '''Parse the Atom feed and print a summary'''
     atom = feedparser.parse(feed)
 
-    print ("${color white}You have %s new mails${color} ${alignr}Last Check: %s" % ((len(atom.entries)), time.strftime("%I:%M")))
+    print ("${color white}You have %s new mails${color} ${alignr}Updated: ${color white}%s" % ((len(atom.entries)), time.strftime("%I:%M")))
 
     for i in range(len(atom.entries)):
         if(i>10):
