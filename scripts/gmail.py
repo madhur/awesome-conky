@@ -54,9 +54,9 @@ def readmail(feed):
             break
         if(len(atom.entries[i].title) > WRAP_LIMIT):
         #print ("%s" % (fill(wrap(atom.entries[i].title, 50)[0]+" ...", 55)))
-            print ("%s" % (wrap(atom.entries[i].title, WRAP_LIMIT)[0]+" ..."))
+            print ("${color1}%s" % (wrap(atom.entries[i].title, WRAP_LIMIT)[0]+" ..."))
         else:
-            print ("%s" % (wrap(atom.entries[i].title, WRAP_LIMIT)[0]))
+            print ("${color1}%s" % (wrap(atom.entries[i].title, WRAP_LIMIT)[0]))
 
 def countmail(feed):
     '''Parse the Atom feed and print a summary'''
