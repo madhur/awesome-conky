@@ -18,18 +18,20 @@ Click [here](https://raw.githubusercontent.com/madhur/awesome-conky/master/scree
 * Fetches twitter followers count
 * Fetches github statistics
 
+###Prerequisites
+* Python 3 - `sudo apt-get install python3`
+* [lm-sensors](http://www.lm-sensors.org/) for monitoring Core temperatures - `sudo apt-get install lm-sensors`
+
 ###Usage
 1. All the files need to be dropped into `.conky` folder inside your home directory i.e. `~/.conky/`
 
 2. Fonts should be installed to `/usr/share/fonts/` and then executing `sudo fc-cache -fv`
 
-3. You need to rename the file `.password-sample.json` inside `scripts` folder to `.passwords.json` and provide the credentials, user ids and access tokens for various social networks. See [OAuth setup](#oauth) below
+3. You need to rename the file `.password-sample.json` inside `scripts` folder to `.passwords.json` and provide the credentials, user ids, yahoo weather code and access tokens for various social networks. See [OAuth setup](#oauth) below
 
 4. Install [fbcmd](http://fbcmd.dtompkins.com/) for facebook notifications
 
-5. Update the 29229014 location code in `.conkyrc-weather` with your location code
-
-6. `conky_start.sh` is a main executable which fires up all the three conkies. You might want to put it in your startup of your X Window.
+5. `conky_start.sh` is a main executable which fires up all the three conkies. You might want to put it in your startup of your X Window.
 
 There are 3 conky configurations as follows:
 
@@ -37,7 +39,7 @@ There are 3 conky configurations as follows:
 
 * conky-social: Displays data from various social networks such as Facebook, Feedly, Github, Stackoverflow, Pocket etc.
 
-* conky-weather: This is a fork of [https://github.com/mariusv/conky-google-now](https://github.com/mariusv/conky-google-now). Full credit to him. I just made minor tweaks like removing extra information to save real estate.
+* conky-weather: This is a fork of [https://github.com/mariusv/conky-google-now](https://github.com/mariusv/conky-google-now). Full credit to him. I just converted inline unreadable curl calls to python script and bit of UI hacks
 
 
 ###OAuth Setup<a name="oauth"></a>
