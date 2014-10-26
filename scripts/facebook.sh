@@ -10,7 +10,7 @@ then
 	
 	echo '${color}No new updates ${alignr}Updated: ${color white}'$currenttime
 else
-	echo '${color white}'$msgcount'${color aaaaaa} NEW MESSAGE(S) Updated: ${color white}${alignr}'$currenttime
+	echo '${color white}'$msgcount'${color aaaaaa} NEW MESSAGE(S) ${alignr}Updated: ${color white}'$currenttime
 	echo '${color white}'$notifycount'${color aaaaaa} NEW NOTIFICATION(S)'
 	echo '${color white}'$friendcount'${color aaaaaa} NEW Friend Request(s)'
 
