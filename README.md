@@ -5,7 +5,7 @@ My simple but awesome conky configuration. Feel free to fork and use it yourself
 Click [here](https://raw.githubusercontent.com/madhur/awesome-conky/master/screenshots/conky2.png) to see how it looks on a desktop when nicely arranged
 
 <div style="float:left;width:100%">
-<img alt=conky-core src=https://raw.githubusercontent.com/madhur/awesome-conky/master/screenshots/conky2.png />
+<img alt=conky-core height=700px src=https://raw.githubusercontent.com/madhur/awesome-conky/master/screenshots/conky2.png />
 </div>
 <div style="float:clear"></div>
 <p/><p/><p/>
