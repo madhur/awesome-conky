@@ -1,5 +1,5 @@
 # Awesome Conky
-My simple but awesome conky configuration. Feel free to fork and use it yourself. Though it will require some work to setup.
+My simple but awesome conky configuration. Feel free to fork and use it yourself.
 
 ### Screenshots
 Click [here](https://raw.githubusercontent.com/madhur/awesome-conky/master/screenshots/conky2.png) to see how it looks on a desktop when nicely arranged
@@ -11,9 +11,8 @@ Click [here](https://raw.githubusercontent.com/madhur/awesome-conky/master/scree
 <p/><p/><p/>
 
 ### Usage
-1. All the files need to be dropped into `.conky` folder inside your home directory i.e. `~/.conky/`
+Just drop the filels into conky configuration directory i.e. `~/config/.conky/`
 
-2. Fonts should be installed to `/usr/share/fonts/` and then executing `sudo fc-cache -fv`
 
 
 ### Credits
